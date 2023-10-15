@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Mulish:wght@600&family=Special+Elite&display=swap");
+
+.contact_content {
+  margin-left: auto;
+  max-width: 880px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.contact_img {
+  height: 270px;
+  border-radius: 150px;
+  /* margin-top: 20px;
+  margin-left: 50px; */
+}
+
+.form-group {
+  width: 770px;
+}
+
+.contact_text {
+  text-align: center;
+  font-family: 'Caveat' ;
+  font-size: 47px;
+  padding-top: 25px;
+}

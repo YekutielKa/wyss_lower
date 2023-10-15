@@ -1,20 +1,26 @@
-import "./App.css";
-import Header from "./Header";
+import { Route, Routes } from "react-router-dom";
+import Header from "./header/Header";
+import Arms from "./pages/Arms";
+import Contacts from "./pages/Contacts";
+import Criminal from "./pages/Criminal";
+import Family from "./pages/Family";
+import Home from "./pages/Home";
+import RealState from "./pages/RealState";
+import Traffic from "./pages/Traffic";
 
 function App() {
   return (
-    <div className="intro">
+    <div className="wrapper">
       <Header />
-      <div className="video">
-        <video
-          className="video_media"
-          src="video_background.mp4"
-          autoPlay="autoplay"
-          muted
-          loop
-        ></video>
-      </div>
-      <div className="content"></div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="arms" element={<Arms />} />
+        <Route path="*" element={<Contacts />} />
+        <Route path="criminal" element={<Criminal />} />
+        <Route path="family" element={<Family />} />
+        <Route path="realstate" element={<RealState />} />
+        <Route path="traffic" element={<Traffic />} />
+      </Routes>
     </div>
   );
 }
