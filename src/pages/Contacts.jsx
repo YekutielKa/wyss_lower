@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from '@emailjs/browser';
 
 import "./Contacts.css";
 
 const Contacts = () => {
+
+  const form = useRef()
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_gkhkbcl', 'template_ewlw8kf', form.current, 'Z45td5-pdLJNas06L')
+      .then((res) => {
+          console.log(res.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
+  
   return (
     <>
-      <form class="form-horizontal" action=" " method="post" id="contact_form">
+      <form ref={form} onSubmit={sendEmail} class="form-horizontal"  method="post" id="contact_form">
         <fieldset className="contact_content">
           <div>
             <img className="contact_img" src="contact.png" />
@@ -23,6 +37,7 @@ const Contacts = () => {
                     placeholder="Имя"
                     class="form-control"
                     type="text"
+                    required
                   />
                 </div>
               </div>
@@ -39,6 +54,7 @@ const Contacts = () => {
                     placeholder="Фамилия"
                     class="form-control"
                     type="text"
+                    required
                   />
                 </div>
               </div>
@@ -54,7 +70,7 @@ const Contacts = () => {
                     name="email"
                     placeholder="E-Mail Address"
                     class="form-control"
-                    type="text"
+                    type="email"
                   />
                 </div>
               </div>
@@ -71,6 +87,7 @@ const Contacts = () => {
                     placeholder="+(972)-55-555-55-55"
                     class="form-control"
                     type="text"
+                    required
                   />
                 </div>
               </div>
@@ -86,6 +103,7 @@ const Contacts = () => {
                     class="form-control"
                     name="comment"
                     placeholder="Ваше обращение"
+                    required
                   ></textarea>
                 </div>
               </div>
@@ -94,7 +112,7 @@ const Contacts = () => {
               <label class="col-md-4 control-label"></label>
               <div class="col-md-4">
                 <button type="submit" class="btn btn-warning">
-                  Отправить <span class="glyphicon glyphicon-send"></span>
+                  Отправить<span class="glyphicon glyphicon-send"></span>
                 </button>
               </div>
             </div>
